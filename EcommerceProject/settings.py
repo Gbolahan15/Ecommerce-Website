@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'category',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'EcommerceProject.wsgi.application'
+
+# Telling the settings that we are using the Custom User Model
+AUTH_USER_MODEL = 'accounts.Account' # (appname.model_name)
 
 
 # Database
