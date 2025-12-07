@@ -17,3 +17,12 @@ def store(request, category_slug=None):
 
     context = {'products':products, 'product_count':product_count}
     return render(request, 'store/store.html', context)
+
+def product_detail(request, category_slug, product_slug):
+    try:
+        single_product = Product.objects.get(
+            category__slug=category_slug, slug=product_slug) # to get access to the slug of the model
+    except Exception as e:
+        raise e
+    context = {'single_product':single_product,}
+    return render(request, 'store/product_detail.html', context)
